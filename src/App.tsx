@@ -1,11 +1,11 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import {Button} from '@chakra-ui/react'
 
 function App() {
-  return (
-    <ChakraProvider>
-      <h1>Game Hub</h1>
-    </ChakraProvider>
-  )
+    return (
+        <>
+            <Button colorScheme='blue'>Button</Button>
+        </>
+    )
 }
 
 export default App
