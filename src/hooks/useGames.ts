@@ -1,11 +1,6 @@
 import useData from "./useData.ts";
 import {Genre} from "./useGenre.ts";
-
-export interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-}
+import {Platform} from "./usePlatforms.ts";
 
 export interface Game {
     id: number;
