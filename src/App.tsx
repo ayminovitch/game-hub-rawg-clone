@@ -7,6 +7,7 @@ import {Genre} from "./hooks/useGenre.ts";
 import PlatformSelector from "./components/PlatformSelector.tsx";
 import {Platform} from "./hooks/usePlatforms.ts";
 import SortSelector from "./components/SortSelector.tsx";
+import GameHeading from "./components/GameHeading.tsx";
 
 export interface GameQuery {
     genre: Genre | null;
@@ -39,14 +40,21 @@ function App() {
                     </GridItem>
                 </Show>
                 <GridItem pl='2' area={'main'}>
-                    <Flex paddingLeft={2} marginBottom={5}>
-                        <Box marginRight={5}>
-                            <PlatformSelector selectedPlatform={gameQuery.platform}
-                                              onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})}/>
-                        </Box>
-                        <SortSelector selectedSortOrder={gameQuery.sortOrder}
-                                      onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})}/>
-                    </Flex>
+                    <Box paddingLeft={2}>
+                        <GameHeading gameQuery={gameQuery}/>
+                        <Flex marginBottom={5}>
+                            <Box marginRight={5}>
+                                <PlatformSelector selectedPlatform={gameQuery.platform}
+                                                  onSelectPlatform={(platform) => setGameQuery({
+                                                      ...gameQuery,
+                                                      platform
+                                                  })}/>
+                            </Box>
+                            <SortSelector selectedSortOrder={gameQuery.sortOrder}
+                                          onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})}/>
+                        </Flex>
+                    </Box>
+
                     <GameGrid gameQuery={gameQuery}/>
                 </GridItem>
             </Grid>
