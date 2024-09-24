@@ -4,15 +4,10 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard.tsx";
 import GameCardSkeleton from "./GameCardSkeleton.tsx";
 import GameCardContainer from "./GameCardContainer.tsx";
-import {GameQuery} from "../App.tsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-interface GameGridProps {
-    gameQuery: GameQuery;
-}
-
-const GameGrid = ({gameQuery}: GameGridProps) => {
-    const {data, error, isLoading, fetchNextPage, hasNextPage} = useGames(gameQuery);
+const GameGrid = () => {
+    const {data, error, isLoading, fetchNextPage, hasNextPage} = useGames();
     const skeletons = [1, 2, 3, 4, 5, 6];
 
     if (error) return <Text>{error.message}</Text>
