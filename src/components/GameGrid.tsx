@@ -1,5 +1,5 @@
 import React from "react";
-import {SimpleGrid, Spinner, Text} from "@chakra-ui/react";
+import {Box, SimpleGrid, Spinner, Text} from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard.tsx";
 import GameCardSkeleton from "./GameCardSkeleton.tsx";
@@ -30,7 +30,9 @@ const GameGrid = () => {
                     <React.Fragment key={index}>
                         {page.results.map((game) => (
                             <GameCardContainer key={game.id}>
-                                <GameCard game={game}/>
+                                <Box animation="bounce">
+                                    <GameCard game={game}/>
+                                </Box>
                             </GameCardContainer>
                         ))}
                     </React.Fragment>))
